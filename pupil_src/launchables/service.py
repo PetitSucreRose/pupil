@@ -96,9 +96,9 @@ def service(
         # Plug-ins
         from plugin import Plugin, Plugin_List, import_runtime_plugins
         from calibration_routines import calibration_plugins, gaze_mapping_plugins
-        from pupil_remote import Pupil_Remote
+        from data_api.frame_publisher import Frame_Publisher
+        from data_api.pupil_remote import Pupil_Remote
         from pupil_groups import Pupil_Groups
-        from frame_publisher import Frame_Publisher
         from blink_detection import Blink_Detection
         from service_ui import Service_UI
         from background_helper import IPC_Logging_Task_Proxy
