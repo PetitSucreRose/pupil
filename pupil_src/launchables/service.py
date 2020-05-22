@@ -96,8 +96,7 @@ def service(
         # Plug-ins
         from plugin import Plugin, Plugin_List, import_runtime_plugins
         from calibration_routines import calibration_plugins, gaze_mapping_plugins
-        from data_api.frame_publisher import Frame_Publisher
-        from data_api.pupil_remote import Pupil_Remote
+        from data_api import DataApiPlugin
         from pupil_groups import Pupil_Groups
         from blink_detection import Blink_Detection
         from service_ui import Service_UI
@@ -148,8 +147,7 @@ def service(
         user_launchable_plugins = [
             Service_UI,
             Pupil_Groups,
-            Pupil_Remote,
-            Frame_Publisher,
+            DataApiPlugin,
             Blink_Detection,
         ] + runtime_plugins
         plugin_by_index = (
@@ -164,7 +162,7 @@ def service(
             ("Service_UI", {}),
             ("Dummy_Gaze_Mapper", {}),
             ("HMD_Calibration", {}),
-            ("Pupil_Remote", {}),
+            ("DataApiPlugin", {}),
         ]
         g_pool.plugin_by_name = plugin_by_name
 
@@ -203,7 +201,7 @@ def service(
             g_pool, session_settings.get("loaded_plugins", default_plugins)
         )
 
-        # NOTE: The Pupil_Remote plugin fails to load when the port is already in use
+        # NOTE: The DataApiPlugin plugin fails to load when the port is already in use
         # and will set this variable to false. Then we should not even start the eye
         # processes. Otherwise we would have to wait for their initialization before
         # attempting cleanup in Service.
