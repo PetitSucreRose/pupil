@@ -152,7 +152,7 @@ def world(
         from recorder import Recorder
         from display_recent_gaze import Display_Recent_Gaze
         from time_sync import Time_Sync
-        from data_api import DataApiPlugin
+        from network_api import NetworkApiPlugin
         from pupil_groups import Pupil_Groups
         from surface_tracker import Surface_Tracker_Online
         from log_display import Log_Display
@@ -232,7 +232,7 @@ def world(
         user_plugins = [
             Audio_Capture,
             Pupil_Groups,
-            DataApiPlugin,
+            NetworkApiPlugin,
             Time_Sync,
             Surface_Tracker_Online,
             Annotation_Capture,
@@ -310,7 +310,7 @@ def world(
             ("Display_Recent_Gaze", {}),
             ("Screen_Marker_Calibration", {}),
             ("Recorder", {}),
-            ("DataApiPlugin", {}),
+            ("NetworkApiPlugin", {}),
             ("Accuracy_Visualizer", {}),
             ("Plugin_Manager", {}),
             ("System_Graphs", {}),
